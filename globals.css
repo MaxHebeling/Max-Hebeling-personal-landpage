@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 40 13% 94%;
+    --foreground: 0 0% 13%;
+    --card: 40 13% 94%;
+    --card-foreground: 0 0% 13%;
+    --popover: 40 13% 94%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 0 0% 13%;
+    --primary-foreground: 40 13% 94%;
+    --secondary: 37 18% 90%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 37 18% 90%;
+    --muted-foreground: 0 0% 33%;
+    --accent: 43 48% 56%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 34 20% 88%;
+    --input: 34 20% 88%;
+    --ring: 43 48% 56%;
+    --chart-1: 43 48% 56%;
+    --chart-2: 0 0% 70%;
+    --chart-3: 0 0% 40%;
+    --chart-4: 43 40% 65%;
+    --chart-5: 0 0% 55%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-4 {
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+/* Books section reveal */
+.books-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Hide scrollbar for Netflix row */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Book cover slide-in */
+@keyframes bookSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Detail panel expand */
+@keyframes detailExpand {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    max-height: 800px;
+    transform: translateY(0);
+  }
+}
+
+/* Conference reveal */
+.conf-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Brush stroke highlight - mobile horizontal */
+.nav-brush {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.nav-brush::before {
+  content: "";
+  position: absolute;
+  bottom: 15%;
+  left: -6%;
+  width: 112%;
+  height: 45%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Cpath d='M3 18c15-8 35-12 55-10 25 3 50-2 75 2 20 3 38-3 55-1 8 1 10 4 9 7-2 4-10 5-20 5-30 0-60 3-90 1C55 20 25 23 8 22 4 22 2 20 3 18z' fill='%23C6A85A' opacity='0.25'/%3E%3C/svg%3E") no-repeat center;
+  background-size: 100% 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: -1;
+}
+
+.nav-brush:hover::before {
+  transform: scaleX(1);
+}
+
+/* Brush stroke highlight - desktop vertical sidebar */
+.nav-brush-vertical {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-brush-vertical::before {
+  content: "";
+  position: absolute;
+  left: 15%;
+  top: -6%;
+  height: 112%;
+  width: 70%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 200'%3E%3Cpath d='M18 3c-8 15-12 35-10 55 3 25-2 50 2 75 3 20-3 38-1 55 1 8 4 10 7 9 4-2 5-10 5-20 0-30 3-60 1-90C20 55 23 25 22 8 22 4 20 2 18 3z' fill='%23C6A85A' opacity='0.25'/%3E%3C/svg%3E") no-repeat center;
+  background-size: 100% 100%;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: -1;
+}
+
+.nav-brush-vertical:hover::before {
+  transform: scaleY(1);
+}
+
+
